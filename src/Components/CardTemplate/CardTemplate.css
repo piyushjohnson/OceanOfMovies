@@ -1,0 +1,13 @@
+.custom-image img {
+  display: block;
+}
+.custom-card {
+  padding: 10px 16px;
+}
+.custom-card p {
+  color: #757575;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
+}
