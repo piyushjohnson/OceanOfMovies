@@ -1,0 +1,4 @@
+[build]
+base = "OceanOfMovies/"
+publish = "OceanOfMovies/build/"
+command = "npm run-script build"

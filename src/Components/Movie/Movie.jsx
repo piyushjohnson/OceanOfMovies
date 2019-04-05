@@ -61,7 +61,7 @@ export default class Movie extends Component {
             <strong> Download: </strong>
           </div>
           <Button type="primary" shape="round" icon="download" size="large"><a href={this.state.download}></a>
-          {this.state.download != undefined ? 'Download' : 'Coming Soon'}
+          {this.state.download !== undefined ? 'Download' : 'Coming Soon'}
           </Button>
         </Col>
       </Row>
