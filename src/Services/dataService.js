@@ -1,4 +1,3 @@
-/* @flow */
 import axios from 'axios'
 
 const apiKey = 'keylHmetNqcx8w1MI'

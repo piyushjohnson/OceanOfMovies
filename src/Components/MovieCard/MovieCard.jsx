@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card } from 'antd'
 
-import './CardTemplate.css'
+import './MovieCard.css'
 
-const CardTemplate = ({ title, description,image , id }) => (
+const MovieCard = ({ title, description,image , id }) => (
   <Link to={`/movie/${id}`}>
     <Card style={{ width: 240, margin: 8 }} bodyStyle={{ padding: 0 }}>
       <div className='custom-image'>
@@ -18,4 +18,4 @@ const CardTemplate = ({ title, description,image , id }) => (
   </Link>
 )
 
-export default CardTemplate
+export default MovieCard

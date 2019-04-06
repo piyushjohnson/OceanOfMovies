@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react'
+import {Helmet} from 'react-helmet';
 import { Row, Col,Button } from 'antd'
 
 import Api from '../../Services/dataService'
@@ -43,6 +44,11 @@ export default class Movie extends Component {
   render () {
     return (
       <Row>
+        <Helmet>
+          <title>{`${this.state.name} - Full Movie Direct Download`}</title>
+          <meta name="charset" content="utf-8" />
+          <meta name="description" content={`${this.state.description}`} />
+        </Helmet>
         <Col span={8} offset={1}>
           <img crossOrigin="anonymous" alt={this.state.name} width='85%' src={`${this.state.image}`} />
         </Col>

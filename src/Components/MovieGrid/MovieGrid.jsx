@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import uuidv4 from 'uuid/v4'
 import Api from '../../Services/dataService'
 
-export default class ListTable extends Component {
+export default class MovieGrid extends Component {
   constructor () {
     super()
     this.state = {

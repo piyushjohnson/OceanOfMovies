@@ -5,6 +5,8 @@ import { LocaleProvider } from 'antd'
 import enUS from 'antd/lib/locale-provider/en_US'
 import App from './App'
 
+import registerServiceWorker from './registerServiceWorker';
+
 ReactDOM.render(
   <BrowserRouter>
     <LocaleProvider locale={enUS}>
@@ -13,3 +15,4 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 )
+registerServiceWorker();
