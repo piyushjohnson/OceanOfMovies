@@ -6,7 +6,10 @@ import { Menu, Icon } from 'antd'
 
 export default function Navbar () {
   return (
-    <Menu mode='horizontal'>
+    <Menu 
+      theme='dark'
+      mode='horizontal'
+      style={{ lineHeight: '64px' }}>
       <Menu.Item >
         <Link to='/'>
           <Icon type='home' /> Home

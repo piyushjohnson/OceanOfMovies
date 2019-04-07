@@ -1,6 +1,6 @@
 import React from 'react'
 import {Helmet} from 'react-helmet';
-import MovieGrid from '../MovieGrid/MovieGrid';
+import MovieGrid from '../../Components/MovieGrid/MovieGrid';
 
 const Home = () => (
   <div>
@@ -12,5 +12,4 @@ const Home = () => (
     <MovieGrid />
   </div>
 )
-
 export default Home

@@ -4,7 +4,7 @@ import { Row, Col } from 'antd'
 import Api from '../../Services/dataService.js'
 import uuidv4 from 'uuid/v4'
 
-import MovieCard from '../MovieCard/MovieCard'
+import MovieCard from '../../Components/MovieCard/MovieCard'
 
 import './MovieFinder.css'
 export default class Showfilms extends Component {

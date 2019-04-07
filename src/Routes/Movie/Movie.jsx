@@ -12,13 +12,22 @@ export default class Movie extends Component {
   constructor (props) {
     super(props)
 
-    this.state = {
-      title: '',
+  this.state = {
+      name: '',
       description: '',
       image: '',
       trailer: '',
-      download: ''
+      stream: '',
+      download: '',
+      direct: ''
     }
+  }
+
+  getDownloadLink(url) {
+    Api.getMovieDownloadLink(url).then(res => {
+      if(res.urls !== undefined)
+        this.setState({direct: res.urls[0].id});
+    })
   }
 
   componentDidMount () {
@@ -26,12 +35,15 @@ export default class Movie extends Component {
     Api.getMovieById(idFilm)
         .then(data => {
           console.log('dataApi', data)
+          // Api.getOpenloadDownloadLink(data.fields.stream);
           this.setState({
             name: data.fields.title,
             image: data.fields.image,
             description: data.fields.description,
             trailer: Movie.getYoutubeVideoId(data.fields.trailer),
-            download: data.fields.download
+            stream: data.fields.stream,
+            download: data.fields.download,
+            direct: this.getDownloadLink(data.fields.download)
           })
         })
   }
@@ -61,12 +73,20 @@ export default class Movie extends Component {
           <div className='trailer'>
             <strong> Trailer: </strong>
           </div>
-          <YouTube videoId={this.state.trailer} />
+          <YouTube crossOrigin="anonymous" videoId={this.state.trailer} />
+          <hr />
+          <div className='stream'>
+            <strong> Stream: </strong>
+          </div>
+          <iframe title={this.state.name} crossOrigin="anonymous" allowFullScreen={true} frameBorder="0" height="430" mozallowfullscreen="true" scrolling="no" src={`https://openload.co/embed/${this.state.stream}`} style={{backgroundColor: "transparent", webkitallowfullscreen:true ,width: 700}}/>
           <hr />
           <div className='download'>
             <strong> Download: </strong>
           </div>
-          <Button type="primary" shape="round" icon="download" size="large"><a href={this.state.download}></a>
+          <Button type="primary" shape="round" icon="download" size="large" href={this.state.direct}>
+          {this.state.direct !== undefined ? 'Direct Download' : 'Coming Soon'}
+          </Button>
+          <Button type="primary" shape="round" icon="download" size="large" href={this.state.download}>
           {this.state.download !== undefined ? 'Download' : 'Coming Soon'}
           </Button>
         </Col>

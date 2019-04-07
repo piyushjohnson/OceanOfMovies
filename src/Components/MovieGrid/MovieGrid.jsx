@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Row, List } from 'antd'
+import {Row, Col,List } from 'antd'
 import { Link } from 'react-router-dom'
 import uuidv4 from 'uuid/v4'
 import Api from '../../Services/dataService'
@@ -34,7 +34,8 @@ export default class MovieGrid extends Component {
   render () {
 
     return (
-      <Row>
+      <Row gutter={8}>
+        <Col>
         <List
           itemLayout="vertical"
           size="small"
@@ -53,7 +54,8 @@ export default class MovieGrid extends Component {
             {item.description}
           </List.Item>
         )}
-      />
+        />
+        </Col>
       </Row>
     )
   }
